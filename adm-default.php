@@ -4,7 +4,7 @@ Plugin Name: Admium default options
 Plugin URI: www.admium.nl
 Description: Several default options for Admium Wordpress CMS.
 Author: Admium
-Version: 0.3
+Version: 0.4
 Author URI: www.admium.nl
 GitHub Plugin URI: AdmiumNL/adm-default
 */
