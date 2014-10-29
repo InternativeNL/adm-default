@@ -4,22 +4,22 @@ Plugin Name: Admium default options
 Plugin URI: www.admium.nl
 Description: Several default options for Admium Wordpress CMS.
 Author: Admium
-Version: 0.5
+Version: 0.6
 Author URI: www.admium.nl
 GitHub Plugin URI: AdmiumNL/adm-default
 */
 
 ///////////////////////////////////////////////////////////////////////////////
 
-function remove_wordpress_generator() {
+function adm_remove_wordpress_generator() {
 	return '';
 }
-add_filter('the_generator', 'remove_wordpress_generator', 1);
+add_filter('the_generator', 'adm_remove_wordpress_generator', 1);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Style the login page to Admium design //////////////////////////////////////
 
-function add_custom_login_image() {
+function adm_add_custom_login_image() {
     echo '
     <style type="text/css">
         #login {
@@ -67,33 +67,33 @@ function add_custom_login_image() {
     </style>
     ';
 }
-add_action('login_head', 'add_custom_login_image');
+add_action('login_head', 'adm_add_custom_login_image');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Change link and title for the Wordpress logo on the login page
 
-function add_custom_login_url(){
+function adm_add_custom_login_url(){
     return "http://www.admium.nl/";
 }
-add_filter('login_headerurl', 'add_custom_login_url');
+add_filter('login_headerurl', 'adm_add_custom_login_url');
 
-function add_custom_login_title(){
+function adm_add_custom_login_title(){
     return "Admium - online strategie & realisatie";
 }
-add_filter('login_headertitle', 'add_custom_login_title');
+add_filter('login_headertitle', 'adm_add_custom_login_title');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Change copyright notification at the bottom of the page
 
-function add_custom_footer_admin () {
+function adm_add_custom_footer_admin () {
 	echo '&copy; '.date("Y").' - Admium';
 }
-add_filter('admin_footer_text', 'add_custom_footer_admin');
+add_filter('admin_footer_text', 'adm_add_custom_footer_admin');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Disable certain default Wordpress dashboard widgets
 
-function disable_default_dashboard_widgets() {
+function adm_disable_default_dashboard_widgets() {
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); // remove incoming links widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core'); // remove plugins widget
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'core'); // remove quick press widget
@@ -102,13 +102,26 @@ function disable_default_dashboard_widgets() {
 	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal'); // remove gravity forms widget
 	remove_meta_box('yoast_db_widget', 'dashboard', 'normal'); // remove yoast widget
 }
-add_action('admin_menu', 'disable_default_dashboard_widgets', 1);
+add_action('admin_menu', 'adm_disable_default_dashboard_widgets', 1);
+
+///////////////////////////////////////////////////////////////////////////////
+// Disable Wordpress update notification for non admin users
+
+function adm_disable_update_notification() 
+{
+    if (!current_user_can('update_core')) {
+        remove_action( 'admin_notices', 'update_nag', 3 );
+    }
+}
+add_action( 'admin_head', 'adm_disable_update_notification', 1 );
 
 ///////////////////////////////////////////////////////////////////////////////
 // Add iFrame to Wordpress dashboard which loads Admium documentation
 
-function admium_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('custom_help_widget', 'Hulp nodig? Admium deelt kennis', 'custom_dashboard_help');
+function adm_custom_dashboard_widgets() {
+	wp_add_dashboard_widget('custom_help_widget', 'Hulp nodig? Bekijk de Admium service website', function(){
+    	echo '<iframe src="http://service.admium.nl/widget/" width="100%" height="500"></iframe>';
+	});
 	
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
 	global $wp_meta_boxes;
@@ -127,10 +140,7 @@ function admium_custom_dashboard_widgets() {
 	// Save the sorted array back into the original metaboxes 
 	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 }
-function custom_dashboard_help() {
-	echo '<iframe src="http://service.admium.nl/widget/" width="100%" height="500"></iframe>';
-}
-add_action('wp_dashboard_setup', 'admium_custom_dashboard_widgets');
+add_action('wp_dashboard_setup', 'adm_custom_dashboard_widgets');
 
 ///////////////////////////////////////////////////////////////////////////////
 
