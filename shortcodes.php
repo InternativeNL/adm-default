@@ -12,8 +12,9 @@ function adm_sitemap($atts, $content = null, $code) {
 	}
 	return '';
 }
-
 add_shortcode('sitemap', 'adm_sitemap');
+
+///////////////////////////////////////////////////////////////////////////////
 
 function adm_sitemap_pages($atts){
 	extract(shortcode_atts(array(
@@ -23,6 +24,8 @@ function adm_sitemap_pages($atts){
 	
 	return '<div class="sc-sitemap sitemap-pages"><ul>'.wp_list_pages('depth=0&sort_column=menu_order&echo=0&title_li=&depth='.$depth.'&number='.$number ).'</ul></div>';
 }
+
+///////////////////////////////////////////////////////////////////////////////
 
 function adm_sitemap_posts($atts){
 	extract(shortcode_atts(array(
@@ -65,4 +68,3 @@ function adm_sitemap_posts($atts){
 	
 	return '<div class="sc-sitemap sitemap-posts"><ul>'.$output.'</ul></div>';
 }
-?>
