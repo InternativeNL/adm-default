@@ -4,7 +4,7 @@ Plugin Name: Admium default options
 Plugin URI: www.admium.nl
 Description: Several default options for Admium Wordpress CMS.
 Author: Admium
-Version: 0.2
+Version: 0.3
 Author URI: www.admium.nl
 GitHub Plugin URI: AdmiumNL/adm-default
 */
@@ -24,7 +24,7 @@ function add_custom_login_image() {
     echo '
     <style type="text/css">
         #login {
-        	width: 264px !important;
+        	width: 295px !important;
         }
         #loginform, #lostpasswordform {
             border-radius: 5px;
@@ -48,9 +48,9 @@ function add_custom_login_image() {
         }
         h1 a { 
             background-image:url(http://www.admium.nl/plugin/admium_logo.png) !important;
-            background-size: 264px 85px !important;
+            background-size: 295px 85px !important;
             height: 85px !important;
-            width: 264px !important;
+            width: 295px !important;
         }
         body {
             background:none !important;
