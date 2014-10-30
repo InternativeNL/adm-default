@@ -4,8 +4,11 @@ Plugin Name: Admium default options
 Plugin URI: www.admium.nl
 Description: Several default options for Admium Wordpress CMS.
 Author: Admium
-Version: 0.7
+Version: 0.8
 Author URI: www.admium.nl
+License: GPLv2 or later
+Text Domain: adm-default
+Domain Path: /languages
 GitHub Plugin URI: AdmiumNL/adm-default
 */
 
@@ -78,7 +81,7 @@ function adm_add_custom_login_url(){
 add_filter('login_headerurl', 'adm_add_custom_login_url');
 
 function adm_add_custom_login_title(){
-    return "Admium - online strategie & realisatie";
+    return 'Admium - online strategie &amp; realisatie';
 }
 add_filter('login_headertitle', 'adm_add_custom_login_title');
 
@@ -119,7 +122,7 @@ add_action( 'admin_head', 'adm_disable_update_notification', 1 );
 // Add iFrame to Wordpress dashboard which loads Admium documentation
 
 function adm_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('custom_help_widget', 'Hulp nodig? Bekijk de Admium service website', function(){
+	wp_add_dashboard_widget('custom_help_widget', __('Need help? Visit the Admium service website', 'adm-default'), function(){
     	echo '<iframe src="http://service.admium.nl/widget/" width="100%" height="500"></iframe>';
 	});
 	
