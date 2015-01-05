@@ -109,7 +109,7 @@ add_action( 'admin_head', 'adm_disable_update_notification', 1 );
 
 function adm_custom_dashboard_widgets() {
 	wp_add_dashboard_widget('custom_help_widget', __('Need help? Visit the Admium service website', 'adm-default'), function(){
-    	echo '<iframe src="http://service.admium.nl/widget/" width="100%" height="500"></iframe>';
+    	echo '<iframe src="https://service.admium.nl/widget/" width="100%" height="500"></iframe>';
 	});
 	
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
