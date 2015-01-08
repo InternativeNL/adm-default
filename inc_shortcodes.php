@@ -5,8 +5,7 @@ function adm_sitemap($atts, $content = null, $code) {
 		switch($atts['type']){
 			case 'pages':
 				return adm_sitemap_pages($atts);
-			case 'posts':
-			default:
+			case 'post': default:
 				return adm_sitemap_posts($atts);	
 		}
 	}
@@ -34,7 +33,7 @@ function adm_sitemap_posts($atts){
 		'cat' => '',
 		'posts' => '',
 		'author' => '',
-        'type' => 'post'
+    'type' => 'post'
 	), $atts));
 	
 	if($number == 0){
