@@ -3,7 +3,7 @@
 function adm_sitemap($atts, $content = null, $code) {
 	if(isset($atts['type'])){
 		switch($atts['type']){
-			case 'pages':
+			case 'page': case 'pages':
 				return adm_sitemap_pages($atts);
 			case 'post': default:
 				return adm_sitemap_posts($atts);	
