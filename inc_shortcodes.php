@@ -33,7 +33,8 @@ function adm_sitemap_posts($atts){
 		'cat' => '',
 		'posts' => '',
 		'author' => '',
-    'type' => 'post'
+    'type' => 'post',
+    'comments' => 'true'
 	), $atts));
 	
 	if($number == 0){
@@ -60,7 +61,11 @@ function adm_sitemap_posts($atts){
 	
 	$output = '';
 	while ($archive_query->have_posts()) : $archive_query->the_post();
-		$output .= '<li><a href="'.get_permalink().'" rel="bookmark" title="'.sprintf( __("Permanent Link to %s", 'striking_front'), get_the_title() ).'">'. get_the_title().'</a>'.($comments_number?' ('.get_comments_number().')':'').'</li>';
+		$output .= '<li><a href="'.get_permalink().'" rel="bookmark" title="'.sprintf( __("Permanent Link to %s", 'striking_front'), get_the_title() ).'">'. get_the_title().'</a>';
+		if( $comments == 'true' ) {
+			$output .= ($comments_number?' ('.get_comments_number().')':'');
+		}
+		$output .= '</li>';
 	endwhile;
 	
 	wp_reset_query();
