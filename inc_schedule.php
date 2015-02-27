@@ -7,7 +7,7 @@
 
 add_action('admin_init',function(){
     
-    // DISABLE ACCESS TO XMLRPM.PHP //
+    // DISABLE ACCESS TO XMLRPC.PHP //
     $adm_option = get_option('adm_block_xmlrpc', 0); // Returns 0 is it doesnt excist or 1 when script has already run
     if ($adm_option == 0){
         

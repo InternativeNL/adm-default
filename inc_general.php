@@ -67,7 +67,7 @@ function adm_add_custom_login_url(){
 add_filter('login_headerurl', 'adm_add_custom_login_url');
 
 function adm_add_custom_login_title(){
-    return 'Admium - online strategie &amp; realisatie';
+    return 'Admium - online strategie &amp; resultaat';
 }
 add_filter('login_headertitle', 'adm_add_custom_login_title');
 
