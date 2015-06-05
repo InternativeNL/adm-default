@@ -90,6 +90,7 @@ function adm_disable_default_dashboard_widgets() {
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core'); // remove other wordpress news widget
 	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal'); // remove gravity forms widget
 	remove_meta_box('yoast_db_widget', 'dashboard', 'normal'); // remove yoast widget
+	remove_meta_box('wordfence_activity_report_widget', 'dashboard', 'normal'); // remove wordfence widget
 }
 add_action('admin_menu', 'adm_disable_default_dashboard_widgets', 1);
 
