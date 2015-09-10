@@ -6,7 +6,7 @@ function adm_sitemap($atts, $content = null, $code) {
 			case 'page': case 'pages':
 				return adm_sitemap_pages($atts);
 			case 'post': default:
-				return adm_sitemap_posts($atts);	
+				return adm_sitemap_posts($atts);
 		}
 	}
 	return '';
@@ -19,9 +19,10 @@ function adm_sitemap_pages($atts){
 	extract(shortcode_atts(array(
 		'number' => '0',
 		'depth' => '0',
+		'exclude' => ''
 	), $atts));
-	
-	return '<div class="sc-sitemap sitemap-pages"><ul>'.wp_list_pages('depth=0&sort_column=menu_order&echo=0&title_li=&depth='.$depth.'&number='.$number ).'</ul></div>';
+
+	return '<div class="sc-sitemap sitemap-pages"><ul>'.wp_list_pages('depth=0&sort_column=menu_order&echo=0&title_li=&depth='.$depth.'&number='.$number.'&exclude='.$exclude ).'</ul></div>';
 }
 
 ///////////////////////////////////////////////////////////////////////////////
