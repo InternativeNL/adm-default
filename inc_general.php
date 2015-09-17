@@ -1,5 +1,5 @@
 <?php
-    
+
 function adm_remove_wordpress_generator() {
 	return '';
 }
@@ -34,7 +34,7 @@ function adm_add_custom_login_image() {
         .login #backtoblog, .login #nav {
             text-align:center !important;
         }
-        h1 a { 
+        h1 a {
             background-image:url(http://www.admium.nl/plugin/admium_logo.png) !important;
             background-size: 295px 85px !important;
             height: 85px !important;
@@ -97,7 +97,7 @@ add_action('admin_menu', 'adm_disable_default_dashboard_widgets', 1);
 ///////////////////////////////////////////////////////////////////////////////
 // Disable Wordpress update notification for non admin users
 
-function adm_disable_update_notification() 
+function adm_disable_update_notification()
 {
     if (!current_user_can('update_core')) {
         remove_action( 'admin_notices', 'update_nag', 3 );
@@ -112,14 +112,14 @@ function adm_custom_dashboard_widgets() {
 	wp_add_dashboard_widget('custom_help_widget', __('Need help? Visit the Admium service website', 'adm-default'), function(){
     	echo '<iframe src="https://service.admium.nl/widget/" width="100%" height="500"></iframe>';
 	});
-	
+
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin
 	global $wp_meta_boxes;
-	
-	// Get the regular dashboard widgets array 
+
+	// Get the regular dashboard widgets array
 	// (which has our new widget already but at the end)
 	$normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
-	
+
 	// Backup and delete our new dashboard widget from the end of the array
 	$example_widget_backup = array('custom_help_widget' => $normal_dashboard['custom_help_widget']);
 	unset($normal_dashboard['custom_help_widget']);
@@ -127,7 +127,18 @@ function adm_custom_dashboard_widgets() {
 	// Merge the two arrays together so our widget is at the beginning
 	$sorted_dashboard = array_merge($example_widget_backup, $normal_dashboard);
 
-	// Save the sorted array back into the original metaboxes 
+	// Save the sorted array back into the original metaboxes
 	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 }
 add_action('wp_dashboard_setup', 'adm_custom_dashboard_widgets');
+
+///////////////////////////////////////////////////////////////////////////////
+// Prevent Gravity Form from uploading the .htaccess file to the uploads folder
+
+// Check if the Gravity Forms plugin is active
+if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+
+    // Prevent the .htaccess file from uploading
+    add_filter( 'gform_upload_root_htaccess_rules', '__return_false' );
+
+}
