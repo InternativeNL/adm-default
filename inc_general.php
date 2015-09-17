@@ -136,9 +136,11 @@ add_action('wp_dashboard_setup', 'adm_custom_dashboard_widgets');
 // Prevent Gravity Form from uploading the .htaccess file to the uploads folder
 
 // Check if the Gravity Forms plugin is active
-if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+add_action( 'admin_init', function() {
+	if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
 
-    // Prevent the .htaccess file from uploading
-    add_filter( 'gform_upload_root_htaccess_rules', '__return_false' );
+	    // Prevent the .htaccess file from uploading
+	    add_filter( 'gform_upload_root_htaccess_rules', '__return_false' );
 
+	}
 }
