@@ -143,4 +143,4 @@ add_action( 'admin_init', function() {
 	    add_filter( 'gform_upload_root_htaccess_rules', '__return_false' );
 
 	}
-}
+} );
