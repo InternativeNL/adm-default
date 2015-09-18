@@ -134,13 +134,34 @@ add_action('wp_dashboard_setup', 'adm_custom_dashboard_widgets');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Prevent Gravity Form from uploading the .htaccess file to the uploads folder
-
-// Check if the Gravity Forms plugin is active
 add_action( 'admin_init', function() {
+
+	// Check if the Gravity Forms plugin is active
 	if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+
+		// Set the upload dir
+		$upload_dir = wp_upload_dir();
+
+		// Set the uplaod base dir
+		$upload_base_dir = $upload_dir['basedir'];
+
+		// Set the gravity forms dir
+		$gravity_upload_base_dir = $upload_base_dir . '/gravity_forms/';
+
+		// Set the filename
+		$filename = $gravity_upload_base_dir . '.htaccess';
+
+		// Check if the .htaccess file exists
+		if ( file_exists( $filename ) ) {
+
+			// Remove the .htaccess file
+			unlink( $filename );
+
+		}
 
 	    // Prevent the .htaccess file from uploading
 	    add_filter( 'gform_upload_root_htaccess_rules', '__return_false' );
 
 	}
+	
 } );
