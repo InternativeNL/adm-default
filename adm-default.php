@@ -2,8 +2,8 @@
 /*
 Plugin Name: Internative default options
 Plugin URI: www.internative.nl
-Description: Several default options for Admium Wordpress CMS.
-Author: Admium
+Description: Several default options for Internative Wordpress CMS.
+Author: Internative
 Version: 1.0.1
 Author URI: www.internative.nl
 License: GPLv2 or later
