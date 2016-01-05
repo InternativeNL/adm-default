@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Admium default options
-Plugin URI: www.admium.nl
+Plugin Name: Internative default options
+Plugin URI: www.internative.nl
 Description: Several default options for Admium Wordpress CMS.
 Author: Admium
-Version: 0.9.9
-Author URI: www.admium.nl
+Version: 1.0.0
+Author URI: www.internative.nl
 License: GPLv2 or later
 Text Domain: adm-default
 Domain Path: /languages
-GitHub Plugin URI: AdmiumNL/adm-default
+GitHub Plugin URI: InternativeNL/adm-default
 */
 
 ///////////////////////////////////////////////////////////////////////////////
