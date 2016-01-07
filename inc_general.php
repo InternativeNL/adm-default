@@ -35,16 +35,16 @@ function adm_add_custom_login_image() {
             text-align:center !important;
         }
         h1 a {
-            background-image:url(http://www.admium.nl/plugin/admium_logo.png) !important;
-            background-size: 295px 85px !important;
-            height: 85px !important;
-            width: 295px !important;
+            background-image:url(//www.internative.nl/plugin/internative_logo.png) !important;
+            background-size: 125px 117px !important;
+            height: 117px !important;
+            width: 125px !important;
         }
         body {
             background:none !important;
         }
         html {
-            background: url(http://www.admium.nl/plugin/background.php) no-repeat center center fixed !important;
+            background: url(//www.internative.nl/plugin/background.php) no-repeat center center fixed !important;
             -webkit-background-size: cover !important;
             -moz-background-size: cover !important;
             -o-background-size: cover !important;
@@ -62,7 +62,7 @@ add_action('login_head', 'adm_add_custom_login_image');
 // Change link and title for the Wordpress logo on the login page
 
 function adm_add_custom_login_url(){
-    return "http://www.admium.nl/";
+    return "http://www.internative.nl/";
 }
 add_filter('login_headerurl', 'adm_add_custom_login_url');
 
