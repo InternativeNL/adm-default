@@ -6,7 +6,7 @@ function adm_remove_wordpress_generator() {
 add_filter('the_generator', 'adm_remove_wordpress_generator', 1);
 
 ///////////////////////////////////////////////////////////////////////////////
-// Style the login page to Admium design //////////////////////////////////////
+// Style the login page to Intrnative design //////////////////////////////////////
 
 function adm_add_custom_login_image() {
     echo '
@@ -67,7 +67,7 @@ function adm_add_custom_login_url(){
 add_filter('login_headerurl', 'adm_add_custom_login_url');
 
 function adm_add_custom_login_title(){
-    return 'Admium - online strategie &amp; resultaat';
+    return 'Internative - We make digital work';
 }
 add_filter('login_headertitle', 'adm_add_custom_login_title');
 
@@ -75,7 +75,7 @@ add_filter('login_headertitle', 'adm_add_custom_login_title');
 // Change copyright notification at the bottom of the page
 
 function adm_add_custom_footer_admin () {
-	echo '&copy; '.date("Y").' - Admium';
+	echo '&copy; '.date("Y").' - Internative';
 }
 add_filter('admin_footer_text', 'adm_add_custom_footer_admin');
 
@@ -106,11 +106,11 @@ function adm_disable_update_notification()
 add_action( 'admin_head', 'adm_disable_update_notification', 1 );
 
 ///////////////////////////////////////////////////////////////////////////////
-// Add iFrame to Wordpress dashboard which loads Admium documentation
+// Add iFrame to Wordpress dashboard which loads Internative documentation
 
 function adm_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('custom_help_widget', __('Need help? Visit the Admium service website', 'adm-default'), function(){
-    	echo '<iframe src="//service.admium.nl/widget/" width="100%" height="500"></iframe>';
+	wp_add_dashboard_widget('custom_help_widget', __('Need help? Visit the Internative service website', 'adm-default'), function(){
+    	echo '<iframe src="//service.internative.nl/widget/" width="100%" height="500"></iframe>';
 	});
 
 	// Globalize the metaboxes array, this holds all the widgets for wp-admin

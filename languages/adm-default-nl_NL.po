@@ -1,34 +1,35 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adm-default\n"
-"POT-Creation-Date: 2014-10-30 11:12+0100\n"
-"PO-Revision-Date: 2014-10-30 11:22+0100\n"
+"POT-Creation-Date: 2016-04-25 14:05+0100\n"
+"PO-Revision-Date: 2016-04-25 14:05+0100\n"
 "Last-Translator: Erik de Vries <info@erikdevries.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../adm-default.php:125
-msgid "Need help? Visit the Admium service website"
-msgstr "Hulp nodig? Bekijk de Admium service website"
+#: ../inc_general.php:112
+msgid "Need help? Visit the Internative service website"
+msgstr "Hulp nodig? Bekijk de Internative service website"
 
-#: ../shortcodes.php:64
+#: ../inc_shortcodes.php:65
 #, fuzzy, php-format
 msgid "Permanent Link to %s"
 msgstr "Berichten door %s"
 
-#: adm-default.php:3
-msgid "Admium default options"
-msgstr "Admium standaard aanpassingen"
+#~ msgid "Need help? Visit the Admium service website"
+#~ msgstr "Hulp nodig? Bekijk de Internative service website"
 
-#: adm-default.php:5
-msgid "Several default options for Admium Wordpress CMS."
-msgstr "Diverse standaard aanpassingen voor het Admium Wordpress CMS."
+#~ msgid "Admium default options"
+#~ msgstr "Internative standaard aanpassingen"
+
+#~ msgid "Several default options for Admium Wordpress CMS."
+#~ msgstr "Diverse standaard aanpassingen voor het Internative Wordpress CMS."
